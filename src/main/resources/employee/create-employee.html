@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libapp - Gestão de bibliotecas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+</head>
+<body>
+    <div class="ui container">
+        <form class="ui form" action="/api/doctor" method="post" content="appl">
+            <div class="field">
+                <label for="input-name">Name</label>
+                <input id="input-name" name="name" type="text" placeholder="Ex: Elberth Moraes">
+            </div>
+            <div class="field">
+                <label for="input-role">Role</label>
+                <input id="input-role" name="role" type="text" placeholder="Ex: Developer">
+            </div>
+            <div class="field">
+                <label for="input-salary">Salary</label>
+                <input id="input-salary" name="salary" type="text" placeholder="Ex: 20000">
+            </div>
+            <button class="ui primary button" type="submit">Send</button>
+        </form>
+    </div>
+</body>
+<script src="/scripts/top-menu.js" ></script>
+<script>
+    document.querySelectorAll("nav a").forEach(i => {
+        i.href == i.baseURI && i.classList.add("active")
+    })
+</script>
+</html>
