@@ -1,16 +1,24 @@
 package bibliotecaSpark.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
-public class Appointment extends MedicalCare {
-    private String diagnosis;
+public class Appointment extends Schedule {
+    private String diagnostic;
     private String prescription;
     private String symptoms;
+
+    public Appointment(
+            String datetime,
+            Patient patient,
+            Doctor doctor,
+            MedicalCare medicalCare,
+            String type
+    ) throws Exception {
+        super(datetime, patient, doctor, medicalCare, type);
+    }
 }

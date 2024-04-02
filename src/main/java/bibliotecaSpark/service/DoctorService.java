@@ -11,10 +11,9 @@ import java.util.Map;
 
 public class DoctorService {
 
-    private static Map<Integer, Doctor> doctorDb = new HashMap<>();
-    private static int id = 0;
+    private static final Map<Integer, Doctor> doctorDb = new HashMap<>();
 
-    private static CepService cepService = Feign.builder()
+    private static final CepService cepService = Feign.builder()
             .decoder(new JacksonDecoder())
             .target(CepService.class, "https://viacep.com.br/");
 

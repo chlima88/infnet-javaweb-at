@@ -1,6 +1,7 @@
 package bibliotecaSpark.controller;
 
 import bibliotecaSpark.model.Appointment;
+import bibliotecaSpark.model.AppointmentDTO;
 import bibliotecaSpark.service.AppointmentService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +25,8 @@ public class AppointmentController {
     };
 
     public static Route addAppointment = (request, response) -> {
-        Appointment appointment = AppointmentController.toObject(request.body());
+        AppointmentDTO appointmentDTO = AppointmentController.toDTO(request.body());
+        Appointment appointment = AppointmentService.build(appointmentDTO);
         AppointmentService.add(appointment);
         response.body(AppointmentController.toJson(appointment));
         return response.body();
@@ -33,17 +35,23 @@ public class AppointmentController {
     public static Route deleteAppointment = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
         Appointment appointment = AppointmentService.getById(id);
-        AppointmentService.delete(appointment.getMedicalCareId());
+        AppointmentService.delete(appointment.getScheduleId());
         response.status(204);
         response.body("");
         return response.body();
     };
 
-    private static String toJson(Object employee) throws JsonProcessingException {
-        return new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(employee);
+    private static String toJson(Object object) throws JsonProcessingException {
+        return new ObjectMapper()
+                .registerModule(new JavaTimeModule())
+                .writeValueAsString(object);
     }
 
     private static Appointment toObject(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, Appointment.class);
+    }
+
+    private static AppointmentDTO toDTO(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, AppointmentDTO.class);
     }
 }

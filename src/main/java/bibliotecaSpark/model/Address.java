@@ -1,5 +1,6 @@
 package bibliotecaSpark.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Data;
 
@@ -11,6 +12,10 @@ public class Address {
     private String city;
     private String state;
     private String cep;
+
+    public Address(@JsonProperty(value = "cep", required = true) String cep) throws Exception {
+        this.cep = cep;
+    }
 
     @JsonSetter(value = "logradouro")
     public void setLogradouro(String street) {

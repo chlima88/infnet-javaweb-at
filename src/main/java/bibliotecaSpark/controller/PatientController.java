@@ -44,7 +44,6 @@ public class PatientController {
                 .registerModule(new JavaTimeModule())
                 .writeValueAsString(object);
     }
-
     private static Patient toObject(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, Patient.class);
     }

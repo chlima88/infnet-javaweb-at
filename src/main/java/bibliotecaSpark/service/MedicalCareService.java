@@ -1,7 +1,6 @@
 package bibliotecaSpark.service;
 
 import bibliotecaSpark.model.MedicalCare;
-import bibliotecaSpark.model.User;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,5 +20,9 @@ public class MedicalCareService {
 
     public static MedicalCare getById(int itemId) {
         return medicalCareDb.get(itemId);
+    }
+
+    public static void add(MedicalCare medicalCare) {
+        medicalCareDb.put(medicalCare.getMedicalCareId(), medicalCare);
     }
 }

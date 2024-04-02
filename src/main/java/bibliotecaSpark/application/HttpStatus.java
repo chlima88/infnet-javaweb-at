@@ -1,4 +1,4 @@
-package bibliotecaSpark.exception;
+package bibliotecaSpark.application;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

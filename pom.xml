@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.edu.infnet</groupId>
-    <artifactId>BibliotecaSpark</artifactId>
+    <artifactId>at-healu</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

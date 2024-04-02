@@ -23,6 +23,13 @@ public class MedicalCareController {
         return response.body();
     };
 
+    public static Route addMedicalCare = (request, response) -> {
+        MedicalCare appointment = MedicalCareController.toObject(request.body());
+        MedicalCareService.add(appointment);
+        response.body(MedicalCareController.toJson(appointment));
+        return response.body();
+    };
+
 
     public static Route deleteMedicalCare = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));

@@ -1,6 +1,10 @@
 package bibliotecaSpark.controller;
 
+import bibliotecaSpark.model.ImageDiagnostic;
+import bibliotecaSpark.model.ImageDiagnosticDTO;
 import bibliotecaSpark.model.Laboratory;
+import bibliotecaSpark.model.LaboratoryDTO;
+import bibliotecaSpark.service.ImageDiagnosticService;
 import bibliotecaSpark.service.LaboratoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +28,8 @@ public class LaboratoryController {
     };
 
     public static Route addLaboratory = (request, response) -> {
-        Laboratory laboratory = LaboratoryController.toObject(request.body());
+        LaboratoryDTO laboratoryDTO = LaboratoryController.toDTO(request.body());
+        Laboratory laboratory = LaboratoryService.build(laboratoryDTO);
         LaboratoryService.add(laboratory);
         response.body(LaboratoryController.toJson(laboratory));
         return response.body();
@@ -33,7 +38,7 @@ public class LaboratoryController {
     public static Route deleteLaboratory = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
         Laboratory laboratory = LaboratoryService.getById(id);
-        LaboratoryService.delete(laboratory.getMedicalCareId());
+        LaboratoryService.delete(laboratory.getScheduleId());
         response.status(204);
         response.body("");
         return response.body();
@@ -45,5 +50,8 @@ public class LaboratoryController {
 
     private static Laboratory toObject(String json) throws JsonProcessingException {
         return new ObjectMapper().readValue(json, Laboratory.class);
+    }
+    private static LaboratoryDTO toDTO(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, LaboratoryDTO.class);
     }
 }

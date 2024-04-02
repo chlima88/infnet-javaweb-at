@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffc6cb90-ed2d-4c9e-94e3-8c0136e49e34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/DoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/SiteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/CategoriaInvalidaException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/CircuitoInvalidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ClienteIndefinidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ClienteInvalidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/DuracaoAtendimentoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/HttpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/PrecoBaseInvalidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/RestExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ServicoIndefinidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/TamanhoInvalidoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ScheduleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/CepService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/employee/create-employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/employee/list-employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/index-elberth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/top-menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosticController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/EntityNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/AppointmentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnostic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosticDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/LaboratoryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosticService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosisController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/SiteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/CategoriaInvalidaException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/CircuitoInvalidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ClienteIndefinidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ClienteInvalidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/DuracaoAtendimentoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/HttpStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/PrecoBaseInvalidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/ServicoIndefinidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/TamanhoInvalidoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ScheduleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ScheduleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/CepService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/CepService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosisService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/UserService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,30 +89,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Debug",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.semantic.html.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/GitHub/_Infnet/B4/JavaWeb/BibliotecaSpark/src/main/java/bibliotecaSpark/exception",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.semantic.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/GitHub/_Infnet/B4/JavaWeb/BibliotecaSpark/src/main/java/bibliotecaSpark/exception&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bibliotecaSpark.model" />
@@ -127,6 +128,7 @@
       <recent name="F:\GitHub\_Infnet\B4\JavaWeb\BibliotecaSpark\src\main\resources\employee" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bibliotecaSpark.model" />
       <recent name="bibliotecaSpark.service" />
       <recent name="bibliotecaSpark.controller" />
     </key>
@@ -134,7 +136,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="bibliotecaSpark.App" />
-      <module name="BibliotecaSpark" />
+      <module name="at-healu" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +172,24 @@
       <workItem from="1711718826947" duration="2825000" />
       <workItem from="1711799806305" duration="2578000" />
       <workItem from="1711828702849" duration="16416000" />
-      <workItem from="1711889667068" duration="3396000" />
+      <workItem from="1711889667068" duration="18681000" />
+      <workItem from="1711971186273" duration="13218000" />
+      <workItem from="1712065787403" duration="18949000" />
+      <workItem from="1712093858030" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

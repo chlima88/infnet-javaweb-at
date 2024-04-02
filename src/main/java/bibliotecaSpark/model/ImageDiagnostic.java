@@ -5,11 +5,11 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = true)
-public class Laboratory extends Schedule {
-    private String sampleType;
+public class ImageDiagnostic extends Schedule {
+    private String examType;
     private String result;
 
-    public Laboratory(
+    public ImageDiagnostic(
             String datetime,
             Patient patient,
             Doctor doctor,

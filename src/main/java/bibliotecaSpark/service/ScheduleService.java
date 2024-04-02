@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScheduleService {
+public abstract class ScheduleService {
 
-    private static final Map<Integer, Schedule> scheduleDb = new HashMap<>();
+    protected static final Map<Integer, Schedule> scheduleDb = new HashMap<>();
 
     public static void add(Schedule schedule){
         scheduleDb.put(schedule.getScheduleId(), schedule);
@@ -18,7 +18,7 @@ public class ScheduleService {
         scheduleDb.remove(scheduleId);
     }
 
-    public static Collection<Schedule> list() {
+    public static Collection<? extends Schedule> list() {
         return scheduleDb.values();
     }
 
@@ -26,11 +26,4 @@ public class ScheduleService {
         return scheduleDb.get(itemId);
     }
 
-    public static Schedule build(ScheduleDTO scheduleDTO) {
-        MedicalCare medicalCare = MedicalCareService.getById(scheduleDTO.getMedicalCareId());
-        Patient patient = PatientService.getById(scheduleDTO.getPatientId());
-        Doctor doctor = DoctorService.getById(scheduleDTO.getDoctorId());
-
-        return new Schedule(scheduleDTO.getDatetime(), patient, doctor, medicalCare);
-    }
 }

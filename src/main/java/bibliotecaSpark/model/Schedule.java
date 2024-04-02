@@ -1,24 +1,24 @@
 package bibliotecaSpark.model;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.naming.directory.InvalidAttributeValueException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Data
-@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = Appointment.class),
-        @JsonSubTypes.Type(value = Laboratory.class),
-        @JsonSubTypes.Type(value = ImageDiagnosis.class) }
-)
-public class Schedule {
+public abstract class Schedule {
     @Setter(AccessLevel.NONE)
     private int scheduleId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDateTime datetime;
     private boolean confirmed;
+    private String type;
     private Patient patient;
     private Doctor doctor;
     private MedicalCare medicalCare;
@@ -26,17 +26,19 @@ public class Schedule {
     @Setter(AccessLevel.NONE)
     private static int idCounter;
 
-    public Schedule() {
-        ++idCounter;
-        this.scheduleId = idCounter;
-        this.confirmed = false;
-    }
-
-    public Schedule(String datetime, Patient patient, Doctor doctor, MedicalCare medicalCare) {
-        this();
+    public Schedule(
+            String datetime,
+            Patient patient,
+            Doctor doctor,
+            MedicalCare medicalCare,
+            String type) throws Exception {
         this.patient = patient;
         this.doctor = doctor;
         this.medicalCare = medicalCare;
+        this.type = type;
+        setDatetime(datetime);
+        this.confirmed = false;
+        this.scheduleId = ++idCounter;
     }
 
     public void setDatetime(String datetime) {

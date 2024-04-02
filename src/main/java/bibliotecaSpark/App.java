@@ -1,8 +1,10 @@
 package bibliotecaSpark;
 
 import bibliotecaSpark.controller.*;
-import bibliotecaSpark.exception.HttpStatus;
-import bibliotecaSpark.exception.RestExceptionHandler;
+import bibliotecaSpark.application.HttpStatus;
+import bibliotecaSpark.application.HttpResponse;
+import bibliotecaSpark.exception.EntityNotFoundException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import spark.Spark;
 
 public class App {
@@ -10,19 +12,8 @@ public class App {
     public static void main(String[] args) {
         Spark.port(8080);
 
-        Spark.options("/*", (req, res) -> {
-            String accessControlRequestHeaders = req.headers("Access-Control-Request-Headers");
-            if (accessControlRequestHeaders != null) {
-                res.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
-            }
-
-            String accessControlRequestMethod = req.headers("Access-Control-Request-Method");
-            if (accessControlRequestMethod != null) {
-                res.header("Access-Control-Allow-Methods", accessControlRequestMethod);
-            }
-
-            return "OK";
-        });
+        Spark.staticFileLocation("/dist");
+        Spark.get("/", (request, response) -> App.class.getResourceAsStream("/dist"));
 
         Spark.before((request, response) -> {
             if (request.pathInfo().endsWith("/") && !request.pathInfo().equals("/")) {
@@ -32,27 +23,31 @@ public class App {
             response.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
         });
 
-        Spark.get("/", SiteController.homePage);
-        Spark.get("/scripts/top-menu.js", (req, res) ->
-                App.class.getResourceAsStream("/top-menu.js"));
 
         Spark.path("/api", () -> {
-            Spark.after("/*",(request, response) ->
-            {
-                response.type("application/json");
+            Spark.options("/*", (request, response) -> {
+                String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+                if (accessControlRequestHeaders != null) {
+                    response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+                }
+
+                String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+                if (accessControlRequestMethod != null) {
+                    response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+                }
+
+                return "OK";
             });
+
+
+            Spark.after("/*",(request, response) ->
+                    response.type("application/json"));
+
             Spark.path("/doctor", () -> {
                 Spark.post("", DoctorController.addDoctor);
                 Spark.get("", DoctorController.listDoctor);
                 Spark.get("/:id", DoctorController.getDoctor);
                 Spark.delete("/:id", DoctorController.deleteDoctor);
-            });
-
-            Spark.path("/user", () -> {
-                Spark.post("", UserController.addUser);
-                Spark.get("", UserController.listUser);
-                Spark.get("/:id", UserController.getUser);
-                Spark.delete("/:id", UserController.deleteUser);
             });
 
             Spark.path("/patient", () -> {
@@ -63,8 +58,16 @@ public class App {
             });
 
             Spark.path("/medical-care", () -> {
+                Spark.post("", MedicalCareController.addMedicalCare);
                 Spark.get("", MedicalCareController.listMedicalCare);
+                Spark.get("/:id", MedicalCareController.getMedicalCare);
                 Spark.delete("/:id", MedicalCareController.deleteMedicalCare);
+
+            });
+
+            Spark.path("/schedule", () -> {
+                Spark.get("", ScheduleController.listSchedule);
+                Spark.delete("/:id", ScheduleController.deleteSchedule);
 
                 Spark.path("/laboratory", () -> {
                     Spark.post("", LaboratoryController.addLaboratory);
@@ -80,30 +83,51 @@ public class App {
                     Spark.delete("/:id", AppointmentController.deleteAppointment);
                 });
 
-                Spark.path("/image-diagnosis", () -> {
-                    Spark.post("", ImageDiagnosisController.addImageDiagnosis);
-                    Spark.get("", ImageDiagnosisController.listImageDiagnosis);
-                    Spark.get("/:id", ImageDiagnosisController.getImageDiagnosis);
-                    Spark.delete("/:id", ImageDiagnosisController.deleteImageDiagnosis);
+                Spark.path("/image-diagnostic", () -> {
+                    Spark.post("", ImageDiagnosticController.addImageDiagnostic);
+                    Spark.get("", ImageDiagnosticController.listImageDiagnostic);
+                    Spark.get("/:id", ImageDiagnosticController.getImageDiagnostic);
+                    Spark.delete("/:id", ImageDiagnosticController.deleteImageDiagnostic);
                 });
-
-            });
-
-            Spark.path("/schedule", () -> {
-                Spark.post("", ScheduleController.addSchedule);
-                Spark.get("", ScheduleController.listSchedule);
-                Spark.get("/:id", ScheduleController.getSchedule);
-                Spark.delete("/:id", ScheduleController.deleteSchedule);
             });
         });
 
-        Spark.internalServerError((req, res) -> {
-            res.type("application/json");
-            return new RestExceptionHandler()
-                    .code(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .message("Sei la, mas acho que deu errado! 😭")
-                    .build();
+        Spark.exception(JsonProcessingException.class, (exception, request, response) -> {
+            String message;
+            String cause;
+            if (exception.getCause() != null) {
+                message = exception.getCause().getMessage();
+                cause = exception.getCause().getClass().getSimpleName();
+            }
+            else {
+                message = exception.getOriginalMessage();
+                cause =  exception.getClass().getSimpleName();
+            }
+            response.status(HttpStatus.BAD_REQUEST.getCode());
+            response.type("application/json");
+            response.body(new HttpResponse()
+                    .code(HttpStatus.BAD_REQUEST)
+                    .message(message)
+                    .exception(cause)
+                    .build());
+        });
 
+        Spark.exception(EntityNotFoundException.class, (exception, request, response) -> {
+            response.status(HttpStatus.BAD_REQUEST.getCode());
+            response.type("application/json");
+            response.body(new HttpResponse()
+                    .code(HttpStatus.BAD_REQUEST)
+                    .message(exception.getMessage())
+                    .exception(exception.getClass().getSimpleName())
+                    .build());
+        });
+
+        Spark.internalServerError((req, response) -> {
+            response.type("application/json");
+            return new HttpResponse()
+                    .code(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .message("Não sei o que, mas acho que deu errado! 😭")
+                    .build();
         });
     }
 }
