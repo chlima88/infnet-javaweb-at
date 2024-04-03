@@ -1,9 +1,9 @@
 package bibliotecaSpark.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Delegate;
 
 import javax.naming.directory.InvalidAttributeValueException;
 import java.time.LocalDate;
@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class Person {
     private String name;
     @JsonFormat(shape = JsonFormat.Shape.STRING)

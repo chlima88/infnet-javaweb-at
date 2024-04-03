@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
 public class LaboratoryDTO extends ScheduleDTO {
     private String sampleType;
     private String result;

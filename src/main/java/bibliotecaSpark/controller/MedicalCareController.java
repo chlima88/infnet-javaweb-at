@@ -33,8 +33,7 @@ public class MedicalCareController {
 
     public static Route deleteMedicalCare = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        MedicalCare medicalCare = MedicalCareService.getById(id);
-        MedicalCareService.delete(medicalCare.getMedicalCareId());
+        MedicalCareService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

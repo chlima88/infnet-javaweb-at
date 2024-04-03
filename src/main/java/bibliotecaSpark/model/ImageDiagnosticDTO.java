@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
 public class ImageDiagnosticDTO extends ScheduleDTO {
     private String examType;
     private String result;

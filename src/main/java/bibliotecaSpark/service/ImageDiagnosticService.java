@@ -1,5 +1,6 @@
 package bibliotecaSpark.service;
 
+import bibliotecaSpark.exception.DuplicatedEntityException;
 import bibliotecaSpark.exception.EntityNotFoundException;
 import bibliotecaSpark.model.*;
 
@@ -10,12 +11,16 @@ import java.util.Map;
 
 public class ImageDiagnosticService extends ScheduleService{
 
-    public static void add(ImageDiagnostic imageDiagnostic){
+    public static void add(ImageDiagnostic imageDiagnostic) throws DuplicatedEntityException {
+        if ( !scheduleDb.values().stream().filter(imageDiagnostic::equals).toList().isEmpty())
+            throw new DuplicatedEntityException("ImageDiagnostic already exists");
         scheduleDb.put(imageDiagnostic.getScheduleId(), imageDiagnostic);
     }
 
-    public static void delete (int imageDiagnosticId){
-        scheduleDb.remove(imageDiagnosticId);
+    public static void deleteById (int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("ImageDiagnostic not found");
+        scheduleDb.remove(itemId);
     }
 
     public static Collection<ImageDiagnostic> list() {
@@ -27,17 +32,16 @@ public class ImageDiagnosticService extends ScheduleService{
         return imageDiagnostic;
     }
 
-    public static ImageDiagnostic getById(int itemId) {
+    public static ImageDiagnostic getById(int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("ImageDiagnostic not found");
         return (ImageDiagnostic) scheduleDb.get(itemId);
     }
 
-    public static ImageDiagnostic build(ImageDiagnosticDTO imageDiagnosticDTO) throws Exception {
+    public static ImageDiagnostic build(ImageDiagnosticDTO imageDiagnosticDTO) throws EntityNotFoundException {
         MedicalCare medicalCare = MedicalCareService.getById(imageDiagnosticDTO.getMedicalCareId());
-        if (medicalCare == null ) throw new EntityNotFoundException("medicalCareId not found");
         Patient patient = PatientService.getById(imageDiagnosticDTO.getPatientId());
-        if (patient == null ) throw new EntityNotFoundException("patientId not found");
         Doctor doctor = DoctorService.getById(imageDiagnosticDTO.getDoctorId());
-        if (doctor == null ) throw new EntityNotFoundException("doctorId not found");
 
         ImageDiagnostic imageDiagnostic = new ImageDiagnostic(imageDiagnosticDTO.getDatetime(),patient, doctor, medicalCare, imageDiagnosticDTO.getType());
         imageDiagnostic.setType(imageDiagnosticDTO.getType());

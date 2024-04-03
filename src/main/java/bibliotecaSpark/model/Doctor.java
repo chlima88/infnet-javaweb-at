@@ -10,10 +10,11 @@ import javax.naming.directory.InvalidAttributeValueException;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 public class Doctor extends Person {
     @Setter(AccessLevel.NONE)
     private int doctorId;
+    @EqualsAndHashCode.Include
     private String crm;
     private String specialty;
     @Getter(AccessLevel.NONE)

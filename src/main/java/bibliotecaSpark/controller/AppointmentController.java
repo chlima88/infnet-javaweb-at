@@ -12,9 +12,6 @@ public class AppointmentController {
 
     public static Route getAppointment = (request, response) -> {
         Appointment appointment = AppointmentService.getById(Integer.parseInt(request.params("id")));
-        if (appointment == null) {
-            throw new Exception("AppointmentNotFoundException");
-        }
         response.body(AppointmentController.toJson(appointment));
         return response.body();
     };

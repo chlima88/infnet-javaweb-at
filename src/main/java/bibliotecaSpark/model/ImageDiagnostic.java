@@ -15,7 +15,7 @@ public class ImageDiagnostic extends Schedule {
             Doctor doctor,
             MedicalCare medicalCare,
             String type
-    ) throws Exception {
+    ) {
         super(datetime, patient, doctor, medicalCare, type);
     }
 }

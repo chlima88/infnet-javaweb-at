@@ -1,5 +1,6 @@
 package bibliotecaSpark.service;
 
+import bibliotecaSpark.exception.DuplicatedEntityException;
 import bibliotecaSpark.exception.EntityNotFoundException;
 import bibliotecaSpark.model.*;
 
@@ -10,12 +11,16 @@ import java.util.Map;
 
 public class LaboratoryService extends ScheduleService{
 
-    public static void add(Laboratory laboratory){
+    public static void add(Laboratory laboratory) throws DuplicatedEntityException {
+        if ( !scheduleDb.values().stream().filter(laboratory::equals).toList().isEmpty())
+            throw new DuplicatedEntityException("ImageDiagnostic already exists");
         scheduleDb.put(laboratory.getScheduleId(), laboratory);
     }
 
-    public static void delete (int laboratoryId){
-        scheduleDb.remove(laboratoryId);
+    public static void deleteById(int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("Laboratory not found");
+        scheduleDb.remove(itemId);
     }
 
     public static Collection<Laboratory> list() {
@@ -27,17 +32,16 @@ public class LaboratoryService extends ScheduleService{
         return laboratory;
     }
 
-    public static Laboratory getById(int itemId) {
+    public static Laboratory getById(int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("Laboratory not found");
         return (Laboratory) scheduleDb.get(itemId);
     }
 
-    public static Laboratory build(LaboratoryDTO laboratoryDTO) throws Exception {
+    public static Laboratory build(LaboratoryDTO laboratoryDTO) throws EntityNotFoundException {
         MedicalCare medicalCare = MedicalCareService.getById(laboratoryDTO.getMedicalCareId());
-        if (medicalCare == null ) throw new EntityNotFoundException("medicalCareId not found");
         Patient patient = PatientService.getById(laboratoryDTO.getPatientId());
-        if (patient == null ) throw new EntityNotFoundException("patientId not found");
         Doctor doctor = DoctorService.getById(laboratoryDTO.getDoctorId());
-        if (doctor == null ) throw new EntityNotFoundException("doctorId not found");
 
         Laboratory laboratory = new Laboratory(laboratoryDTO.getDatetime(),patient, doctor, medicalCare, laboratoryDTO.getType());
         laboratory.setSampleType(laboratoryDTO.getSampleType());

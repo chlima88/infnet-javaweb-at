@@ -4,7 +4,9 @@ import bibliotecaSpark.controller.*;
 import bibliotecaSpark.application.HttpStatus;
 import bibliotecaSpark.application.HttpResponse;
 import bibliotecaSpark.exception.EntityNotFoundException;
+import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import spark.Spark;
 
 public class App {
@@ -92,32 +94,14 @@ public class App {
             });
         });
 
-        Spark.exception(JsonProcessingException.class, (exception, request, response) -> {
-            String message;
-            String cause;
-            if (exception.getCause() != null) {
-                message = exception.getCause().getMessage();
-                cause = exception.getCause().getClass().getSimpleName();
-            }
-            else {
-                message = exception.getOriginalMessage();
-                cause =  exception.getClass().getSimpleName();
-            }
+        Spark.exception(Exception.class, (exception, request, response) -> {
+            String message = getExceptionMessage(exception);
+
             response.status(HttpStatus.BAD_REQUEST.getCode());
             response.type("application/json");
             response.body(new HttpResponse()
                     .code(HttpStatus.BAD_REQUEST)
                     .message(message)
-                    .exception(cause)
-                    .build());
-        });
-
-        Spark.exception(EntityNotFoundException.class, (exception, request, response) -> {
-            response.status(HttpStatus.BAD_REQUEST.getCode());
-            response.type("application/json");
-            response.body(new HttpResponse()
-                    .code(HttpStatus.BAD_REQUEST)
-                    .message(exception.getMessage())
                     .exception(exception.getClass().getSimpleName())
                     .build());
         });
@@ -129,5 +113,21 @@ public class App {
                     .message("Não sei o que, mas acho que deu errado! 😭")
                     .build();
         });
+    }
+
+    private static String getExceptionMessage(Exception exception) {
+        String message;
+
+        if(exception.getCause() != null){
+            message = exception.getCause().getMessage();
+//                System.out.println("1 > " + message);
+        } else if (exception instanceof JacksonException) {
+            message = ((JsonProcessingException) exception).getOriginalMessage();
+//                System.out.println("2 >" + message);
+        } else {
+            message = exception.getMessage();
+//                System.out.println("3 >" + message);
+        }
+        return message;
     }
 }

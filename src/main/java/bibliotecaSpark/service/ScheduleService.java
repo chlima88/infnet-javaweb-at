@@ -1,6 +1,7 @@
 package bibliotecaSpark.service;
 
-import bibliotecaSpark.model.*;
+import bibliotecaSpark.exception.EntityNotFoundException;
+import bibliotecaSpark.model.Schedule;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,20 +11,14 @@ public abstract class ScheduleService {
 
     protected static final Map<Integer, Schedule> scheduleDb = new HashMap<>();
 
-    public static void add(Schedule schedule){
-        scheduleDb.put(schedule.getScheduleId(), schedule);
-    }
-
-    public static void delete (int scheduleId){
-        scheduleDb.remove(scheduleId);
+    public static void deleteById(int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("Schedule not found");
+        scheduleDb.remove(itemId);
     }
 
     public static Collection<? extends Schedule> list() {
         return scheduleDb.values();
-    }
-
-    public static Schedule getById(int itemId) {
-        return scheduleDb.get(itemId);
     }
 
 }

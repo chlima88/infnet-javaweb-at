@@ -37,8 +37,7 @@ public class LaboratoryController {
 
     public static Route deleteLaboratory = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        Laboratory laboratory = LaboratoryService.getById(id);
-        LaboratoryService.delete(laboratory.getScheduleId());
+        LaboratoryService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

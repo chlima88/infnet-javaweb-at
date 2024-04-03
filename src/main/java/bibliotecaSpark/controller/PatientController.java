@@ -10,11 +10,8 @@ import spark.Route;
 public class PatientController {
 
     public static Route getPatient = (request, response) -> {
-        Patient user = PatientService.getById(Integer.parseInt(request.params("id")));
-        if (user == null) {
-            throw new Exception("PatientNotFoundException");
-        }
-        response.body(PatientController.toJson(user));
+        Patient patient = PatientService.getById(Integer.parseInt(request.params("id")));
+        response.body(PatientController.toJson(patient));
         return response.body();
     };
 
@@ -24,16 +21,15 @@ public class PatientController {
     };
 
     public static Route addPatient = (request, response) -> {
-        Patient user = PatientController.toObject(request.body());
-        PatientService.add(user);
-        response.body(PatientController.toJson(user));
+        Patient patient = PatientController.toObject(request.body());
+        PatientService.add(patient);
+        response.body(PatientController.toJson(patient));
         return response.body();
     };
 
     public static Route deletePatient = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        Patient user = PatientService.getById(id);
-        PatientService.delete(user.getPatientId());
+        PatientService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

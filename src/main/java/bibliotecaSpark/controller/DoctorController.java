@@ -34,8 +34,7 @@ public class DoctorController {
 
     public static Route deleteDoctor = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        Doctor doctor = DoctorService.getById(id);
-        DoctorService.delete(doctor.getDoctorId());
+        DoctorService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

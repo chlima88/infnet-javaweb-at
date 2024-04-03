@@ -34,8 +34,7 @@ public class ImageDiagnosticController {
 
     public static Route deleteImageDiagnostic = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        ImageDiagnostic imageDiagnostic = ImageDiagnosticService.getById(id);
-        ImageDiagnosticService.delete(imageDiagnostic.getScheduleId());
+        ImageDiagnosticService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

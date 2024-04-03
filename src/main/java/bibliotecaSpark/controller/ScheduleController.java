@@ -1,6 +1,5 @@
 package bibliotecaSpark.controller;
 
-import bibliotecaSpark.model.Schedule;
 import bibliotecaSpark.service.ScheduleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,8 +15,7 @@ public class ScheduleController {
 
     public static Route deleteSchedule = (request, response) -> {
         int id = Integer.parseInt(request.params("id"));
-        Schedule schedule = ScheduleService.getById(id);
-        ScheduleService.delete(schedule.getScheduleId());
+        ScheduleService.deleteById(id);
         response.status(204);
         response.body("");
         return response.body();

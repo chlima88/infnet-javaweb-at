@@ -1,5 +1,7 @@
 package bibliotecaSpark.service;
 
+import bibliotecaSpark.exception.DuplicatedEntityException;
+import bibliotecaSpark.exception.EntityNotFoundException;
 import bibliotecaSpark.model.Address;
 import bibliotecaSpark.model.Doctor;
 import feign.Feign;
@@ -17,7 +19,9 @@ public class DoctorService {
             .decoder(new JacksonDecoder())
             .target(CepService.class, "https://viacep.com.br/");
 
-    public static void add(Doctor doctor){
+    public static void add(Doctor doctor) throws DuplicatedEntityException {
+        if ( !doctorDb.values().stream().filter(doctor::equals).toList().isEmpty())
+            throw new DuplicatedEntityException("Doctor already exists");
         String number = doctor.getAddress().getNumber();
         Address address = cepService.getAddressByCep(doctor.getAddress().getCep());
         address.setNumber(number);
@@ -25,15 +29,19 @@ public class DoctorService {
         doctorDb.put(doctor.getDoctorId(), doctor);
     }
 
-    public static void delete (int employeeId){
-        doctorDb.remove(employeeId);
+    public static void deleteById (int itemId) throws EntityNotFoundException {
+        if(doctorDb.get(itemId) == null)
+            throw new EntityNotFoundException("doctorId not found");
+        doctorDb.remove(itemId);
     }
 
     public static Collection<Doctor> list() {
         return doctorDb.values();
     }
 
-    public static Doctor getById(int itemId) {
+    public static Doctor getById(int itemId) throws EntityNotFoundException {
+        if(doctorDb.get(itemId) == null)
+            throw new EntityNotFoundException("doctorId not found");
         return doctorDb.get(itemId);
     }
 }

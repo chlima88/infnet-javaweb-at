@@ -1,5 +1,6 @@
 package bibliotecaSpark.service;
 
+import bibliotecaSpark.exception.DuplicatedEntityException;
 import bibliotecaSpark.exception.EntityNotFoundException;
 import bibliotecaSpark.model.*;
 
@@ -8,12 +9,16 @@ import java.util.Collection;
 
 public class AppointmentService extends ScheduleService {
 
-    public static void add(Appointment appointment){
+    public static void add(Appointment appointment) throws DuplicatedEntityException {
+        if ( !scheduleDb.values().stream().filter(appointment::equals).toList().isEmpty())
+            throw new DuplicatedEntityException("Appointment already exists");
         scheduleDb.put(appointment.getScheduleId(), appointment);
     }
 
-    public static void delete (int appointmentId){
-        scheduleDb.remove(appointmentId);
+    public static void delete (int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("Appointment not found");
+        scheduleDb.remove(itemId);
     }
 
     public static Collection<Appointment> list() {
@@ -25,7 +30,9 @@ public class AppointmentService extends ScheduleService {
         return appointments;
     }
 
-    public static Appointment getById(int itemId) {
+    public static Appointment getById(int itemId) throws EntityNotFoundException {
+        if(scheduleDb.get(itemId) == null)
+            throw new EntityNotFoundException("AppointmentNotFoundException");
         return (Appointment) scheduleDb.get(itemId);
     }
 

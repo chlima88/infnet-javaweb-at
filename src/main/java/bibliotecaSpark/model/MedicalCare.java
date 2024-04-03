@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.naming.directory.InvalidAttributeValueException;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -40,12 +41,15 @@ public class MedicalCare {
         this.medicalCareId = ++idCounter;
     }
 
-    public void activate() {
-        this.active = true;
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof MedicalCare that)) return false;
+        return Objects.equals(getCode(), that.getCode());
     }
 
-    public void deactivate() {
-        this.active = false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCode());
     }
-
 }

@@ -11,10 +11,11 @@ import javax.naming.directory.InvalidAttributeValueException;
 
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 public class Patient extends Person {
     @Setter(AccessLevel.NONE)
     private int patientId;
+    @EqualsAndHashCode.Include
     private String document;
     private String contact;
     private boolean insurance;
@@ -31,15 +32,17 @@ public class Patient extends Person {
         super(name,address);
         validate(document);
 
+        ++idCounter;
         this.insurance = insurance;
         this.document = document;
-        this.patientId = ++idCounter;
+        this.patientId = idCounter;
     }
 
     private static void validate(String document) throws InvalidAttributeValueException {
 
         if (document == null || document.isBlank())
-            throw new InvalidAttributeValueException("Required property 'document' is blank ");
+            throw new InvalidAttributeValueException("Required property 'document' is blank or null");
     }
+
 }
 

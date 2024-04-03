@@ -1,25 +1,24 @@
 package bibliotecaSpark.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import javax.naming.directory.InvalidAttributeValueException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class Schedule {
     @Setter(AccessLevel.NONE)
     private int scheduleId;
+    @EqualsAndHashCode.Include
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDateTime datetime;
     private boolean confirmed;
     private String type;
+    @EqualsAndHashCode.Include
     private Patient patient;
+    @EqualsAndHashCode.Include
     private Doctor doctor;
     private MedicalCare medicalCare;
     @Getter(AccessLevel.NONE)
@@ -31,7 +30,7 @@ public abstract class Schedule {
             Patient patient,
             Doctor doctor,
             MedicalCare medicalCare,
-            String type) throws Exception {
+            String type) {
         this.patient = patient;
         this.doctor = doctor;
         this.medicalCare = medicalCare;
