@@ -8,41 +8,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffc6cb90-ed2d-4c9e-94e3-8c0136e49e34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/DuplicatedEntityException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/healu/dataloader/Dataloader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnostic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosticDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosticDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/LaboratoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/LaboratoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dist/assets/index-CsxK7e6P.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/employee/create-employee.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/employee/list-employee.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/index-elberth.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/top-menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/application/HttpData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/application/HttpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/application/HttpStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/application/HttpStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ImageDiagnosticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/ImageDiagnosticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/LaboratoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/LaboratoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/MedicalCareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/MedicalCareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/controller/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/DuplicatedEntityException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/exception/DuplicatedEntityException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/exception/EntityNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/exception/EntityNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/AppointmentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/AppointmentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnostic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/ImageDiagnostic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ImageDiagnosticDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/ImageDiagnosticDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Laboratory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Laboratory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/LaboratoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/LaboratoryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/MedicalCare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/MedicalCare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/model/ScheduleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/model/ScheduleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/CepService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/CepService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ImageDiagnosticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/ImageDiagnosticService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/LaboratoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/LaboratoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/MedicalCareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/MedicalCareService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bibliotecaSpark/service/ScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/healu/service/ScheduleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +124,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="bibliotecaSpark.App" />
+      <option name="MAIN_CLASS_NAME" value="healu.App" />
       <module name="at-healu" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,7 +165,7 @@
       <workItem from="1711971186273" duration="13218000" />
       <workItem from="1712065787403" duration="18949000" />
       <workItem from="1712093858030" duration="18000" />
-      <workItem from="1712094585692" duration="12685000" />
+      <workItem from="1712094585692" duration="13869000" />
     </task>
     <servers />
   </component>
